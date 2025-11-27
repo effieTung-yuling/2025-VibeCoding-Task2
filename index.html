@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,22 @@
   <meta name="description" content="這是一位前端工程師的個人品牌網站，用來介紹個人背景、技能、作品集與聯絡方式，方便瀏覽履歷、查看作品與聯繫合作。">
   <style>
     /* CSS:BASE-START */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
+    }
+
+    /* ⭐ 重要更新：防止錨點捲動後被導覽列遮住 */
+    section {
+      scroll-margin-top: 80px;
+      /* 可依 header 視覺高度自行微調，例如 70–110px */
     }
 
     body {
@@ -41,6 +51,7 @@
 
     .nav {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
@@ -65,15 +76,15 @@
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 0.2rem;
       font-size: 0.875rem;
     }
 
     .nav-link {
       text-decoration: none;
       color: #e5e7eb;
-      padding: 0.4rem 0.75rem;
+      padding: .4rem 0.4rem;
       border-radius: 999px;
       border: 1px solid transparent;
       transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
@@ -220,6 +231,7 @@
     .footer-meta span {
       opacity: 0.8;
     }
+
     /* CSS:BASE-END */
 
     /* CSS:HERO-START */
@@ -364,6 +376,7 @@
       margin-top: 0.5rem;
       text-align: left;
     }
+
     /* CSS:HERO-END */
 
     /* CSS:ABOUT-START */
@@ -407,6 +420,7 @@
     .about-meta-list li {
       margin-bottom: 0.35rem;
     }
+
     /* CSS:ABOUT-END */
 
     /* CSS:SKILLS-START */
@@ -451,6 +465,7 @@
       color: #cbd5f5;
       white-space: nowrap;
     }
+
     /* CSS:SKILLS-END */
 
     /* CSS:PROJECTS-START */
@@ -493,6 +508,7 @@
       font-size: 0.8rem;
       color: #9ca3af;
     }
+
     /* CSS:PROJECTS-END */
 
     /* CSS:CONTACT-START */
@@ -538,22 +554,34 @@
       font-size: 0.85rem;
       color: #9ca3af;
     }
+
     /* CSS:CONTACT-END */
 
     /* CSS:RWD-START */
     @media (min-width: 768px) {
       .nav {
         padding: 1rem 1.5rem;
+        flex-direction: row;
       }
 
       .nav-brand {
         font-size: 1.05rem;
       }
 
+      .nav-links {
+        justify-content: flex-end;
+        gap: .75rem;
+        width: auto;
+      }
       .section-inner {
         padding: 3.5rem 1.75rem 3rem;
       }
 
+      section {
+        scroll-margin-top: 60px;
+      }
+
+      /* 桌機補錨點 */
       .hero-inner {
         flex-direction: row;
         align-items: center;
@@ -584,7 +612,7 @@
         flex-direction: row;
       }
 
-      .skill-layout > div {
+      .skill-layout>div {
         flex: 1;
       }
 
@@ -600,7 +628,7 @@
         flex-direction: row;
       }
 
-      .contact-content > div {
+      .contact-content>div {
         flex: 1;
       }
 
@@ -628,9 +656,11 @@
         font-size: 2.7rem;
       }
     }
+
     /* CSS:RWD-END */
   </style>
 </head>
+
 <body>
   <div class="page">
     <header class="site-header">
@@ -673,7 +703,8 @@
               </div>
               <p class="hero-helper">
                 給開發者小提醒：之後會用 Section SDD 的 Prompt 產生新的 Hero 區，請把新的
-                <span class="highlight">section 程式碼整段貼在 <!-- SECTION:HERO-START --> 和 <!-- SECTION:HERO-END --> 註解中間</span>，
+                <span class="highlight">section 程式碼整段貼在 <!-- SECTION:HERO-START --> 和 <!-- SECTION:HERO-END -->
+                  註解中間</span>，
                 完全取代現在這一區的占位內容。
               </p>
             </div>
@@ -682,9 +713,7 @@
                 <span class="hero-badge-dot"></span>
                 <span>開發中 · 個人品牌骨架階段</span>
               </div>
-              <img src="https://source.unsplash.com/800x600/?developer,laptop"
-                   alt="在筆電前撰寫程式碼的前端開發者示意照片"
-                   loading="lazy">
+              <img src="https://source.unsplash.com/800x600/?developer,laptop" alt="在筆電前撰寫程式碼的前端開發者示意照片" loading="lazy">
               <p class="hero-image-caption">
                 圖片示意：之後可依照個人風格替換為自己的形象照或與前端開發相關的照片，來源建議維持使用 Unsplash。
               </p>
@@ -852,8 +881,10 @@
               <ul class="contact-list">
                 <li>電子郵件（占位）：<a class="contact-link" href="mailto:hello@example.com">hello@example.com</a></li>
                 <li>聯絡電話（占位）：<a class="contact-link" href="tel:+886900000000">+886 900 000 000</a></li>
-                <li>GitHub（占位）：<a class="contact-link" href="https://github.com/yourname">https://github.com/yourname</a></li>
-                <li>LinkedIn（占位）：<a class="contact-link" href="https://www.linkedin.com/in/yourname">https://www.linkedin.com/in/yourname</a></li>
+                <li>GitHub（占位）：<a class="contact-link"
+                    href="https://github.com/yourname">https://github.com/yourname</a></li>
+                <li>LinkedIn（占位）：<a class="contact-link"
+                    href="https://www.linkedin.com/in/yourname">https://www.linkedin.com/in/yourname</a></li>
               </ul>
               <p class="contact-note">
                 上述連結目前皆為示意占位，實際使用時請改成自己的帳號網址或聯絡方式。
@@ -880,6 +911,4 @@
     </footer>
   </div>
 </body>
-</html>
-
 </html>
